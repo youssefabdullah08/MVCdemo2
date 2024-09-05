@@ -45,7 +45,7 @@ namespace Compny.Data.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Depts");
+                    b.ToTable("Depts", (string)null);
                 });
 
             modelBuilder.Entity("Compny.Data.Entites.Emp", b =>
@@ -76,7 +76,7 @@ namespace Compny.Data.Migrations
 
                     b.HasIndex("Deptid");
 
-                    b.ToTable("Emps");
+                    b.ToTable("Emps", (string)null);
                 });
 
             modelBuilder.Entity("Compny.Data.Entites.Emp", b =>

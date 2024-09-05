@@ -20,6 +20,7 @@ namespace Compny.Repos.Repos
         public void Add(T entity)
         {
             _context.Add(entity);
+            _context.SaveChanges();
         }
 
         public void Delete(T entity)

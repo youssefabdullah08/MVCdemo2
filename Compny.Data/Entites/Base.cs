@@ -10,8 +10,8 @@ namespace Compny.Data.Entites
     {
         public int id { get; set; }
         public string name { get; set; }
-        public DateTime createAt { get; set; }
-        public DateTime updateAt { get; set; }
+        public DateTime createAt { get; set; } = DateTime.Now;
+        public DateTime updateAt { get; set; } = DateTime.Now;
 
         public bool IsDeleted { get; set; }
     }

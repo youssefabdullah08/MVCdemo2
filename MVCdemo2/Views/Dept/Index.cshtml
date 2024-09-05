@@ -2,27 +2,37 @@
 @{
     ViewData["Title"] = "Index";
 }
+
+<a class="btn btn-dark" asp-action="Create" asp-controller="Dept"><i class="fa-solid fa-plus"></i> Add New Departement</a>
 @if (Model.Count()>0)
 {
-    <table class="table">
+     <h1 class="text-center">Departements</h1>
+    <table class="table text-capitalize">
         <thead>
             <tr>
 
-                <th scope="col">@Html.DisplayNameFor(x=>x.id)</th>
-                <th scope="col">@Html.DisplayNameFor(x => x.name)</th>
-                <th scope="col">@Html.DisplayNameFor(x => x.createAt)</th>
+                <th >@Html.DisplayNameFor(x=>x.id)</th>
+                <th >@Html.DisplayNameFor(x => x.name)</th>
+                <th >@Html.DisplayNameFor(x => x.createAt)</th>
+                <th>view</th>
+                <th>update</th>
+                <th>delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
 
                 @foreach (var x in Model)
                 {
+            <tr>
                     <td>@x.id</td>
                     <td>@x.name</td>
                     <td>@x.createAt</td>
-                }
+                    <td><button class="btn btn-primary"><i class="fa-solid fa-eye"></i></button> </td>
+                    <td><button class="btn btn-success"><i class="fa-regular fa-pen-to-square"></i></button> </td>
+                    <td><button class="btn btn-danger"><i class="fa-solid fa-trash"></i></button> </td>
+
             </tr>
+                }
            
         </tbody>
     </table>
@@ -30,5 +40,6 @@
 else{
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>ALERT!</strong> No Departements To Show.
+        
     </div>
 }

@@ -1,6 +1,8 @@
 using Compny.Data.Contexts;
 using Compny.Repos.InterFaces;
 using Compny.Repos.Repos;
+using Compny.Serveses.Interfaces;
+using Compny.Serveses.Serveses;
 using Microsoft.EntityFrameworkCore;
 
 namespace MVCdemo2
@@ -19,6 +21,8 @@ namespace MVCdemo2
                 options.UseSqlServer(builder.Configuration.GetConnectionString("localConnection"));
             });
             builder.Services.AddScoped<IDept, DeptRepo>();
+            builder.Services.AddScoped<IDeprtmentServes, Deprtmentserves>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
