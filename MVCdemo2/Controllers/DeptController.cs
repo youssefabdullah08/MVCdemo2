@@ -10,12 +10,10 @@ namespace MVCdemo2.Controllers
     public class DeptController : Controller
     {
         private readonly IDeprtmentServes dept;
-        private readonly UOW uOW;
 
-        public DeptController(IDeprtmentServes dept, UOW uOW)
+        public DeptController(IDeprtmentServes dept)
         {
             this.dept = dept;
-            this.uOW = uOW;
         }
         public IActionResult Index()
         {
@@ -41,6 +39,23 @@ namespace MVCdemo2.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public IActionResult ViewData(int id)
+        {
+            var x = dept.GetById(id);
+
+            return View(x);
+        }
+        public IActionResult Delete(int id)
+        {
+            dept.Delete(dept.GetById(id));
+            return View();
+        }
+        public IActionResult Update(int id)
+        {
+            dept.Update(dept.GetById(id));
+            return RedirectToAction("Index");
         }
     }
 }

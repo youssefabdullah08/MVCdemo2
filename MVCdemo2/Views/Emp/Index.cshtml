@@ -1,19 +1,19 @@
-﻿@model IEnumerable<Dept>
+﻿@model IEnumerable<Emp>
 @{
     ViewData["Title"] = "Index";
 }
 
 <a class="btn btn-dark" asp-action="Create" asp-controller="Dept"><i class="fa-solid fa-plus"></i> Add New Departement</a>
-@if (Model.Count()>0)
+@if (Model.Count() > 0)
 {
-     <h1 class="text-center">Departements</h1>
+    <h1 class="text-center">Departements</h1>
     <table class="table text-capitalize">
         <thead>
             <tr>
 
-                <th >@Html.DisplayNameFor(x=>x.id)</th>
-                <th >@Html.DisplayNameFor(x => x.name)</th>
-                <th >@Html.DisplayNameFor(x => x.createAt)</th>
+                <th>@Html.DisplayNameFor(x => x.id)</th>
+                <th>@Html.DisplayNameFor(x => x.name)</th>
+                <th>@Html.DisplayNameFor(x => x.createAt)</th>
                 <th>view</th>
                 <th>update</th>
                 <th>delete</th>
@@ -21,25 +21,26 @@
         </thead>
         <tbody>
 
-                @foreach (var x in Model)
-                {
-            <tr>
+            @foreach (var x in Model)
+            {
+                <tr>
                     <td>@x.id</td>
                     <td>@x.name</td>
                     <td>@x.createAt</td>
                     <td><button class="btn btn-primary" asp-route-id="@x.id" asp-action="ViewData"><i class="fa-solid fa-eye"></i></button> </td>
-                    <td><button class="btn btn-success" asp-route-id="@x.id" asp-action="Update"><i class="fa-regular fa-pen-to-square"></i></button> </td>
+                    <td><button class="btn btn-success" asp-route-id="@x.id" asp-action="Edit"><i class="fa-regular fa-pen-to-square"></i></button> </td>
                     <td><button class="btn btn-danger" asp-route-id="@x.id" asp-action="Delete"><i class="fa-solid fa-trash"></i></button> </td>
 
-            </tr>
-                }
-           
+                </tr>
+            }
+
         </tbody>
     </table>
 }
-else{
+else
+{
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>ALERT!</strong> No Departements To Show.
-        
+
     </div>
 }
